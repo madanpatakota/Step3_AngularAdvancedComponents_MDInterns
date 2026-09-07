@@ -1,5 +1,7 @@
-import { AfterViewInit, Component  ,
-   ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import { Component  ,
+   ElementRef, QueryList,
+   viewChild, signal , viewChildren , computed
+  } from '@angular/core';
 
 @Component({
   imports: [],
@@ -7,50 +9,57 @@ import { AfterViewInit, Component  ,
   styleUrl: './view-child-demo.css',
   templateUrl: './view-child-demo.html',
 })
-export class ViewChildDemo implements AfterViewInit {
+export class ViewChildDemo{
 
 
    //var emp:string  = "Madan";
 
-   @ViewChild('employeeName')   employeeName  !:  ElementRef<HTMLInputElement>;
-
-   employeeNameSt = "";
+   //@ViewChild('employeeName')   employeeName  !:  ElementRef<HTMLInputElement>;
 
 
-   ngAfterViewInit(): void {
-            console.log(this.employeeName.nativeElement.value);
-   }
+   //fresher has to fix........
+
+   employeeName = viewChild<ElementRef<HTMLInputElement>>('employeeName');
+   selectedEmployeeName = signal('');
 
 
+   employeeEmail = viewChild<ElementRef<HTMLInputElement>>('employeeEmail');
+   selectedEmployeeEmail = signal('');
+  
 
+   employeeNameSt:string= "";
+   employeeEmailSt:string= "";
 
    ShowEmployee(){
-        this.employeeNameSt = this.employeeName.nativeElement.value;
-        // console.log(this.employeeName);
+        this.employeeNameSt = this.employeeName()?.nativeElement.value ?? "";
+        this.selectedEmployeeName.set(this.employeeNameSt);
+        //console.log(this.employeeNameSt);
         // console.log(this.employeeName.nativeElement.value);
    }
 
 
+   ShowEmail(){
+        this.employeeEmailSt = this.employeeEmail()?.nativeElement.value ?? "";
+        this.selectedEmployeeEmail.set(this.employeeEmailSt);
+   }
 
-   @ViewChildren('employee')  employees !: QueryList<ElementRef<HTMLInputElement>>
 
-
+   //@ViewChildren('employee')  employees !: QueryList<ElementRef<HTMLInputElement>>
+   //viewChild<ElementRef<HTMLInputElement>>('employeeName');
+   employees =  viewChildren<ElementRef<HTMLInputElement>>('employees'); 
    employeeList :string[] = [];
+
+   employeeCount  = computed(()=> this.employees().length);
    //employees is the List of htmlinputelements
-   ShowEmployees(){
-        this.employees.forEach((employee)=>{
-                 //console.log(employee);
-                //console.log(employee.nativeElement.value);
-
-                // " John         ";
-                // "John";
-
-                // "";
-
-                const name = employee.nativeElement.value.trim();
+   showEmployees(){
+        this.employees().forEach((employee)=>{
+                const name = employee.nativeElement.value;
                 if(name){
                   this.employeeList.push(name)
                 }
         })
+
+         console.log(this.employeeList);
+        
    }
 }

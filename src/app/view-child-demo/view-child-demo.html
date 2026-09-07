@@ -5,6 +5,10 @@
             Employees
         </div>
         <div class="card-body">
+           
+
+            <div >
+           
             <label class="form-label"> Employee Name</label>
             <input type="text"
              class="form-control"
@@ -12,15 +16,40 @@
              value="Peter" 
                 #employeeName>
 
+                </div>
+
+
+                <hr>
+                
+            <div >
+           
+            <label class="form-label"> Employee Email</label>
+            <input type="email"
+             class="form-control"
+             placeholder="Enter Employee Email"
+             value="Peter@gmail.com" 
+                #employeeEmail>
+
+                </div>
+
             <button class="btn btn-primary mt-3"
              (click)="ShowEmployee()">
 
                 Show Employee
 
+            </button> 
+
+            |
+
+             <button class="btn btn-secondary mt-3"
+             (click)="ShowEmail()">
+
+                Show Email
+
             </button>
 
             <p>
-                {{employeeNameSt}}
+                {{employeeNameSt}}   ---- {{employeeEmailSt}}
             </p>
 
         </div>
@@ -29,63 +58,33 @@
 
 </div>
 
-<!-- 
 
-<div class="container mt-5">
 
-    <div class="card shodow-sm">
-        <div class="card-header bg-primary text-white">
-            Employees List - ViewChildren
-        </div>
-        <div class="card-body">
 
-            <div class="mt-2">
-                <input type="text" class="form-control"  #employee>
-            </div>
+<div class="card shadow-sm mt-4">
+  <div class="card-header bg-primary text-white">
+    Employee List - ViewChildren
+  </div>
 
-            <div class="mt-2">
-                <input type="text" class="form-control" #employee>
-            </div>
-
-            <div class="mt-2">
-                <input type="text" class="form-control"  #employee>
-            </div>
-
-            <button class="btn btn-primary mt-3"
-             (click)="ShowEmployees()">
-
-                Show Employees
-
-            </button>
-
-        </div>
-
+  <div class="card-body">
+    <div class="mb-2">
+      <input #employees class="form-control" value="Madan">
     </div>
 
+    <div class="mb-2">
+      <input #employees class="form-control" value="John">
+    </div>
 
-    
-    @if(employeeList.length > 0){
-        <div class="mt-4">
-        <table class="table table-bordered table-striped">
-            <thead class="table-primary">
-                <th>SNO</th>
-                <th>EName</th>
-            </thead>
-            <tbody>
-                @for(empname of employeeList;track $index){
-                    <tr>
-                        <td>
-                             {{$index+1}}
-                        </td>
-                        <td>
-                             {{empname}}
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        </div>
-    }
+    <div class="mb-2">
+      <input #employees class="form-control" value="Robert">
+    </div>
+
+    <button class="btn btn-primary mt-2" (click)="showEmployees()">
+      Show Employees
+    </button>
+
+  </div>
 
 
-</div> -->
+
+  {{employeeCount}}
