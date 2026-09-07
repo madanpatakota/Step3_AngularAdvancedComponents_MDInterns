@@ -1,4 +1,5 @@
-import { Component , ContentChild , ContentChildren, ElementRef, QueryList } from '@angular/core';
+import { Component , ContentChild , ContentChildren, ElementRef, QueryList ,
+   AfterContentInit  } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,9 +7,13 @@ import { Component , ContentChild , ContentChildren, ElementRef, QueryList } fro
   styleUrl: './content-child.css',
   templateUrl: './content-child.html',
 })
-export class ContentChildComponent {
+export class ContentChildComponent implements AfterContentInit{
 
   @ContentChild('employee')   employee !: ElementRef<HTMLParagraphElement>
+
+  ngAfterContentInit(): void {
+      console.log(this.employee.nativeElement.textContent);
+  }
     
 
   firstEmployeeName = '';
