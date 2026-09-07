@@ -1,4 +1,5 @@
-import { Component  , ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import { AfterViewInit, Component  ,
+   ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,14 +7,23 @@ import { Component  , ElementRef, QueryList, ViewChild, ViewChildren} from '@ang
   styleUrl: './view-child-demo.css',
   templateUrl: './view-child-demo.html',
 })
-export class ViewChildDemo {
+export class ViewChildDemo implements AfterViewInit {
 
 
    //var emp:string  = "Madan";
 
    @ViewChild('employeeName')   employeeName  !:  ElementRef<HTMLInputElement>;
 
-   employeeNameSt = ""
+   employeeNameSt = "";
+
+
+   ngAfterViewInit(): void {
+            console.log(this.employeeName.nativeElement.value);
+   }
+
+
+
+
    ShowEmployee(){
         this.employeeNameSt = this.employeeName.nativeElement.value;
         // console.log(this.employeeName);
