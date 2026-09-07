@@ -52,14 +52,17 @@ export class ViewChildDemo{
    employeeCount  = computed(()=> this.employees().length);
    //employees is the List of htmlinputelements
    showEmployees(){
+        this.employeeList=[];
+        
         this.employees().forEach((employee)=>{
                 const name = employee.nativeElement.value;
                 if(name){
                   this.employeeList.push(name)
                 }
+                console.log(this.employeeList);
         })
 
-         console.log(this.employeeList);
+         
         
    }
 }
