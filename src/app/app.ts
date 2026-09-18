@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { DynamicViewDemo } from './dynamic-view-demo/dynamic-view-demo';
 
 @Component({
-  imports: [],
+  imports: [DynamicViewDemo],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
