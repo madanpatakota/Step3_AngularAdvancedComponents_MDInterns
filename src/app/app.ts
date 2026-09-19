@@ -1,7 +1,10 @@
 import { Component, HostBinding, HostListener } from '@angular/core';
+import { TraditioanlHighlightDirective } from './traditional-highlight';
+import { ModernHighlightDirective} from './modern-highlight'
 
 @Component({
-  imports: [],
+  imports: [TraditioanlHighlightDirective , 
+            ModernHighlightDirective],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
@@ -27,32 +30,32 @@ import { Component, HostBinding, HostListener } from '@angular/core';
 export class App {
 
     
-   @HostBinding('style.color')  
-   fontcolor = 'blue';
+//    @HostBinding('style.color')  
+//    fontcolor = 'blue';
   
-   @HostBinding('style.font-weight') 
-   fWeight   = 'bold'
+//    @HostBinding('style.font-weight') 
+//    fWeight   = 'bold'
 
-   @HostBinding('style.font-size')
-   hostfontsize = '30px';
+//    @HostBinding('style.font-size')
+//    hostfontsize = '30px';
 
-    @HostListener('mouseenter')
-    onMouseEnter1234(){
-          this.fontcolor = 'green';
-          this.fWeight   = 'normal'
-    }
+//     @HostListener('mouseenter')
+//     onMouseEnter1234(){
+//           this.fontcolor = 'green';
+//           this.fWeight   = 'normal'
+//     }
 
-    @HostListener('mouseleave')
-    onmouseleave345(){
-          this.fontcolor = 'blue';
-          this.fWeight = 'bold'
-    }
+//     @HostListener('mouseleave')
+//     onmouseleave345(){
+//           this.fontcolor = 'blue';
+//           this.fWeight = 'bold'
+//     }
 
-    @HostListener('click')
-    onclick789(){
-        //  this.backgroundColor123444 = 'yellow'
-        //alert("test");
-        this.fontcolor = 'red';
-    }
+//     @HostListener('click')
+//     onclick789(){
+//         //  this.backgroundColor123444 = 'yellow'
+//         //alert("test");
+//         this.fontcolor = 'red';
+//     }
   
 }
