@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DynamicViewDemo } from './dynamic-view-demo';
+import { EncapsulaitonB } from './encapsulaiton-b';
 
-describe('DynamicViewDemo', () => {
-  let component: DynamicViewDemo;
-  let fixture: ComponentFixture<DynamicViewDemo>;
+describe('EncapsulaitonB', () => {
+  let component: EncapsulaitonB;
+  let fixture: ComponentFixture<EncapsulaitonB>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DynamicViewDemo],
+      imports: [EncapsulaitonB],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DynamicViewDemo);
+    fixture = TestBed.createComponent(EncapsulaitonB);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
